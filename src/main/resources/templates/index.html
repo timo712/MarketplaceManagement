@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marketplace Management</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Marketplace Management</h1>
+    <p>Manage your sellers, product listings, and customer orders.</p>
+</header>
+
+<main>
+    <h2>Choose a section</h2>
+
+    <nav aria-label="Marketplace sections">
+        <ul>
+            <li>
+                <a th:href="@{/sellers}">Manage sellers</a>
+            </li>
+            <li>
+                <a th:href="@{/products}">Manage products</a>
+            </li>
+            <li>
+                <a th:href="@{/orders}">Manage orders</a>
+            </li>
+        </ul>
+    </nav>
+</main>
+</body>
+</html>

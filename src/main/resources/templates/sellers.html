@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Sellers</title>
+    <script th:src="@{/js/sellers.js}" defer></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Manage Sellers</h1>
+    <nav aria-label="Main navigation">
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/products}">Products</a> |
+        <a th:href="@{/orders}">Orders</a>
+    </nav>
+</header>
+
+<main th:attr="data-api=@{/api/sellers}" id="seller-page">
+    <h2 id="form-title">Create seller</h2>
+    <p id="message" role="status"></p>
+
+    <form id="seller-form">
+        <input type="hidden" name="id">
+
+        <p>
+            <label for="sellerName">Seller name</label>
+            <input id="sellerName" name="sellerName" required>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+        </p>
+
+        <p>
+            <label for="businessType">Business type</label>
+            <select id="businessType" name="businessType">
+                <option>Individual</option>
+                <option>Small business</option>
+                <option>Registered company</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="city">City</label>
+            <input id="city" name="city">
+        </p>
+
+        <p>
+            <label for="rating">Rating (0–5)</label>
+            <input id="rating" name="rating" type="number"
+                   min="0" max="5" step="0.1" value="0" required>
+        </p>
+
+        <button type="submit">Save seller</button>
+        <button type="button" id="clear-form">Clear form</button>
+    </form>
+
+    <h2>Seller list</h2>
+    <button type="button" id="refresh">Refresh list</button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Business type</th>
+            <th>City</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="seller-rows"></tbody>
+    </table>
+</main>
+</body>
+</html>
